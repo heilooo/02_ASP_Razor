@@ -1,0 +1,15 @@
+﻿@page
+@model app8_razor.Pages.Articles.DeleteModel
+@{
+}
+<h2>آیا از حذف  این مقاله مطمئن هستید؟</h2>
+<ol style="--length: 5" role="list">
+    <li style="--i: 3">
+        <h3>Article.Title</h3>
+        <p>Article.ShortDescription</p>
+    </li>
+</ol>
+<form method="post">
+    <input asp-for="@Model.Article.Id" type="hidden" />
+    <button type="submit" class="btn btn-danger">حذف</button>
+</form>

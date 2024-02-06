@@ -1,0 +1,30 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+    var articles = Model.Articles.ToList();
+}
+
+<div class="container-fluid">
+    <div class="row fh5co-post-entry">
+        @if (articles.Count > 0)
+        {
+            @foreach (var article in Model.Articles)
+            {
+                <article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
+                    <figure>
+                        <a asp-page="/Articles/Details" asp-route-id="@article.Id"><img src="@article.Picture" alt="@article.PictureAlt" class="img-responsive"></a>
+                    </figure>
+                    <span class="fh5co-meta"><a asp-page="/Articles/Details" asp-route-id="@article.Id">Food &amp; Drink</a></span>
+                    <h2 class="fh5co-article-title"><a asp-page="/Articles/Details" asp-route-id="@article.Id">@article.Title</a></h2>
+                    <span class="fh5co-meta fh5co-date">@article.Created_at.ToShortTimeString()</span>
+                </article>
+            }
+        }
+        else
+        {
+            <h3 class="text-danger text-center">مقاله ای وجود ندارد</h3>
+        }
+
+    </div>
+</div>

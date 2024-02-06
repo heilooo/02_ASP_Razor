@@ -1,0 +1,18 @@
+﻿@page
+@model app8_razor.Pages.Articles.IndexModel
+@{
+}
+<link rel="stylesheet" href="/theme/css/listCss.css">
+<a asp-page="./Create" class="btn btn-info ml-4" style="margin-left:400px">Create Article</a>
+<ol style="--length: 5" role="list">
+   
+    @foreach (var article in Model.Articles)
+    {
+        <li style="--i: 3">
+            <h3>@article.Title</h3>
+            <p>@article.ShortDescription</p>
+            <a asp-page="Edit" asp-route-id="@article.Id"><i class="bi bi-pencil-square">ویرایش</i></a>
+            <a asp-page="Delete" asp-route-id="@article.Id"><i class="bi bi-pencil-square">حذف</i></a>
+        </li>
+    }
+</ol>
